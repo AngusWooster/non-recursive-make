@@ -6,6 +6,7 @@ d		:= $(dir)
 
 
 # Local variables
+UT_LIBS = $(DIR_LIB)/libut.a
 SRCLIST_$(d) := ut_all.c
 INCLIST_$(d) := -I$(d)/inc
 
@@ -19,13 +20,17 @@ $(OBJS_$(d)):	$(SRCS_$(d))
 	@echo ">> ut.mk"
 	$(COMP)
 
+$(UT_LIBS): $(OBJS_ALL_UT_TEST)
+	@echo ">> create ut lib"
+	$(ARCH)
 
 $(DIR_TEST)/ut_all: CF_TGT := $(INCLIST_$(d)) $(S_CF_UT)
-$(DIR_TEST)/ut_all: LL_TGT := $(OBJS_ALL_UT_TEST)			## Add links OBJS / Libs
-$(DIR_TEST)/ut_all:  $(SRCS_$(d)) $(OBJS_ALL_UT_TEST)
+$(DIR_TEST)/ut_all: LL_TGT := $(UT_LIBS)#$(OBJS_ALL_UT_TEST)			## Add links OBJS / Libs
+$(DIR_TEST)/ut_all:  $(SRCS_$(d)) $(UT_LIBS) #$(OBJS_ALL_UT_TEST)		## Add dependency files
 		@echo ">> CF_TGT = "$(CF_TGT)
 		@echo ">> LL_TGT = " $(LL_TGT)
 		$(COMPLINK)
+
 # Standard things
 
 -include	$(DEPS_$(d))
