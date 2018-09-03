@@ -22,7 +22,7 @@ OBJS_ALL_UT_TEST:= $(OBJS_ALL_UT_TEST) $(OBJS_$(d))
 
 # Standard things
 
--include	$(DEPS_$(d))
+#-include	$(DEPS_$(d))
 
 
 d		:= $(dirstack_$(sp))

@@ -10,13 +10,10 @@ d		:= $(dir)
 
 
 # Subdirectories, in random order. Directory-specific rules are optional here.
-dir:=$(d)/m1
-include	$(dir)/m1.mk
-dir:=$(d)/m2
-include	$(dir)/m2.mk
-dir:=$(d)/ut
-include	$(dir)/ut.mk
-
+dir:=$(d)/p1
+include	$(dir)/p1.mk
+dir:=$(d)/p2
+include	$(dir)/p2.mk
 
 # Standard things
 

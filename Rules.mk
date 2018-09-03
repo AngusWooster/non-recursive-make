@@ -21,31 +21,38 @@ all:		targets
 # Subdirectories, in random order
 dir:=modules
 include	$(dir)/modules.mk
-
+dir:=projects
+include	$(dir)/projects.mk
 
 # General directory independent rules
 
-%.o:		%.c
-		$(COMP)
-
-%:		%.o
-		$(LINK)
-
-%:		%.c
-		$(COMPLINK)
-
+#%.o:		%.c
+#		$(COMP)
+#
+#%:		%.o
+#		$(LINK)
+#
+#%:		%.c
+#		$(COMPLINK)
+#
 
 # These two targets collect real targets, i.e. ones that can be built.
 
 .PHONY:		targets
-targets:	$(TGT_BIN) $(TGT_SBIN) $(TGT_ETC) $(TGT_LIB)
+targets:	p1
 
-.PHONY:		testprogs
-testprogs:	$(TGT_TEST)
+.PHONY:		p1
+p1:	$(TGT_MD) $(TGT_P1)
+
+.PHONY:		p2
+p2:	$(TGT_MD) $(TGT_P2)
 
 .PHONY:		ut
 ut:	$(TGT_UT)
 	$(TGT_UT)
+
+.PHONY:		md # make modules
+md: $(TGT_MD)
 # These targets merely contain commands to be executed, i.e. they collect
 # only .PHONY targets, even if they're not explicitly marked as such. 
 # The install target does not collect dependencies (other than for forcing

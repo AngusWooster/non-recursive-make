@@ -24,7 +24,7 @@ $(UT_LIBS): $(OBJS_ALL_UT_TEST)
 	@echo ">> create ut lib"
 	$(ARCH)
 
-$(DIR_TEST)/ut_all: CF_TGT := $(INCLIST_$(d)) $(S_CF_UT)
+$(DIR_TEST)/ut_all: CF_TGT := $(INCLIST_$(d)) $(S_CF_UT)				## Add header folders
 $(DIR_TEST)/ut_all: LL_TGT := $(UT_LIBS)#$(OBJS_ALL_UT_TEST)			## Add links OBJS / Libs
 $(DIR_TEST)/ut_all:  $(SRCS_$(d)) $(UT_LIBS) #$(OBJS_ALL_UT_TEST)		## Add dependency files
 		@echo ">> CF_TGT = "$(CF_TGT)
@@ -33,7 +33,7 @@ $(DIR_TEST)/ut_all:  $(SRCS_$(d)) $(UT_LIBS) #$(OBJS_ALL_UT_TEST)		## Add depend
 
 # Standard things
 
--include	$(DEPS_$(d))
+#-include	$(DEPS_$(d))
 
 d		:= $(dirstack_$(sp))
 sp		:= $(basename $(sp))

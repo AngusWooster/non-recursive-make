@@ -51,5 +51,6 @@ COMPLINK	= $(CMPLR) $(CF_ALL) $(CF_TGT) $(LF_ALL) $(LF_TGT) -o $@ $< $(LL_TGT) $
 
 ### Standard parts
 #
+include	setting.mk
 include	Rules.mk
 
