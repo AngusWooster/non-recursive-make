@@ -53,12 +53,12 @@ $(DIR_OBJ)/%.o:	%.c
 targets:	p1
 
 .PHONY:		p1
-p1:	$(TGT_P1)
+p1:	$(TGT_P2)
 $(TGT_P1) : $(TGT_MD)
 
 .PHONY:		p2
-p2:	$(TGT_P1)
-$(TGT_P1) : $(TGT_MD)
+p2:	$(TGT_P2)
+$(TGT_P2) : $(TGT_MD)
 
 .PHONY:		ut
 ut:	$(TGT_UT)
