@@ -13,16 +13,21 @@ INCLIST_$(d) := -I$(d)/inc \
 				-Imodules/m1/inc \
 
 SRCS_$(d) := $(addprefix $(d)/src/, $(SRCLIST_$(d)))
-#OBJS_$(d) := $(addprefix $(d)/, $(SRCLIST_$(d):%.c=%.o))
+OBJS_$(d) := $(addprefix $(d)/, $(SRCLIST_$(d):%.c=%.o))
 #DEPS_$(d) := $(OBJS_$(d):%=%.d)
 CLEAN := $(CLEAN) $(target) $(target).d #$(OBJS_$(d)) $(DEPS_$(d))
 # Local rules and targets
 TGT_P2 := $(target)
+
+$(OBJS_$(d)): $(d)/%.o : $(d)/src/%.c
+	@echo "p2 COMP>>"
+	$(COMP)
+
 $(target) : CF_TGT := $(INCLIST_$(d))				## Add header folders
 $(target) : LL_TGT := $(M1_LIB)						## Add links OBJS / Libs
-$(target) : $(SRCS_$(d))							## Add dependency files
-	@echo "p2 make>>"
-	$(COMPLINK)
+$(target) : $(OBJS_$(d))							## Add dependency files
+	@echo "p2 LINK>>"
+	$(LINK)
 
 
 # Subdirectories, in random order. Directory-specific rules are optional here.

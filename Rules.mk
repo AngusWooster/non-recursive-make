@@ -25,8 +25,18 @@ dir:=projects
 include	$(dir)/projects.mk
 
 # General directory independent rules
+$(DIR_OBJ)/%.o:	%.c
+		@echo "comp1"
+		$(CMPLR) $(CF_ALL) $(CF_TGT) -o $(DIR_OBJ)/$(@F) -c $<
+%.a:
+	ar rc $@ $(addprefix  $(DIR_OBJ)/, $(^F))
 
-#%.o:		%.c
+%.o:	%.c
+	@echo "com2"
+	$(COMP)
+
+
+#%.o:	%.c
 #		$(COMP)
 #
 #%:		%.o
@@ -35,17 +45,20 @@ include	$(dir)/projects.mk
 #%:		%.c
 #		$(COMPLINK)
 #
-
+#%.a:
+#		$(ARCH)
 # These two targets collect real targets, i.e. ones that can be built.
 
 .PHONY:		targets
 targets:	p1
 
 .PHONY:		p1
-p1:	$(TGT_MD) $(TGT_P1)
+p1:	$(TGT_P1)
+$(TGT_P1) : $(TGT_MD)
 
 .PHONY:		p2
-p2:	$(TGT_MD) $(TGT_P2)
+p2:	$(TGT_P1)
+$(TGT_P1) : $(TGT_MD)
 
 .PHONY:		ut
 ut:	$(TGT_UT)

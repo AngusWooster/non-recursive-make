@@ -10,14 +10,14 @@ SRCLIST_$(d) := m1_test.c
 INCLIST_$(d) := -I$(d)/inc
 
 SRCS_$(d) := $(addprefix $(d)/, $(SRCLIST_$(d)))
-OBJS_$(d) := $(addprefix $(d)/, $(SRCLIST_$(d):%.c=%.o))
+OBJS_$(d) := $(SRCS_$(d):%.c=$(DIR_OBJ)/%.o)
 DEPS_$(d) := $(OBJS_$(d):%=%.d)
 CLEAN := $(CLEAN) $(OBJS_$(d)) $(DEPS_$(d))
 # Local rules and targets
 
 
-OBJS_ALL_UT_TEST:= $(OBJS_ALL_UT_TEST) $(OBJS_$(d))
-
+ALL_UT_TEST_OBJS:= $(ALL_UT_TEST_OBJS) $(OBJS_$(d))
+$(OBJS_$(d)): CF_TGT := $(INCLIST_$(d))
 # Standard things
 
 -include	$(DEPS_$(d))

@@ -4,11 +4,6 @@ sp 		:= $(sp).x
 dirstack_$(sp)	:= $(d)
 d		:= $(dir)
 
-# Local variables
-
-# Local rules and targets
-
-
 # Subdirectories, in random order. Directory-specific rules are optional here.
 dir:=$(d)/m1
 include	$(dir)/m1.mk

@@ -23,9 +23,8 @@ S_CF_UT	= -DUNIT_TEST
 #LF_ALL		= -s
 #LL_ALL		=
 CF_ALL		= -g -Wall
-LF_ALL		= 
+LF_ALL		=
 LL_ALL		=
-
 
 ### Module-specific build flags
 #
@@ -47,7 +46,6 @@ ARCH		= ar rc $@ $^			# "r": create a static lib ,"c": add *.o
 COMP		= $(CMPLR) $(CF_ALL) $(CF_TGT) -o $@ -c $<
 LINK		= $(CMPLR) $(LF_ALL) $(LF_TGT) -o $@ $^ $(LL_TGT) $(LL_ALL)
 COMPLINK	= $(CMPLR) $(CF_ALL) $(CF_TGT) $(LF_ALL) $(LF_TGT) -o $@ $< $(LL_TGT) $(LL_ALL)
-
 
 ### Standard parts
 #
