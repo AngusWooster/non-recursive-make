@@ -20,7 +20,7 @@ TGT_MD := $(TGT_MD) $(M1_LIB)
 $(M1_LIB): $(OBJS_$(d))
 $(OBJS_$(d)): CF_TGT := $(INCLIST_$(d))
 
-
+ALL_MODULES_OBJS := $(ALL_MODULES_OBJS) $(OBJS_$(d))
 # Subdirectories, in random order. Directory-specific rules are optional here.
 dir:=$(d)/test
 include	$(dir)/test.mk

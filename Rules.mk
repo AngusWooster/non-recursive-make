@@ -31,6 +31,7 @@ $(DIR_OBJ)/%.o:	%.c
 %.a:
 	ar rc $@ $(addprefix  $(DIR_OBJ)/, $(^F))
 
+
 %.o:	%.c
 	@echo "com2"
 	$(COMP)

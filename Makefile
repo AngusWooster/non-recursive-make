@@ -14,7 +14,7 @@ TGT_UT = $(DIR_TEST)/ut_all
 
 ### System compatibility flags, used in some targets' CF_TGT, LF_TGT or LL_TGT
 #
-S_CF_UT	= -DUNIT_TEST
+S_CF_UT	= -DUNIT_TEST -Imodules/ut/inc
 
 
 ### Build flags for all targets

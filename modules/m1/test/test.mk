@@ -17,7 +17,7 @@ CLEAN := $(CLEAN) $(OBJS_$(d)) $(DEPS_$(d))
 
 
 ALL_UT_TEST_OBJS:= $(ALL_UT_TEST_OBJS) $(OBJS_$(d))
-$(OBJS_$(d)): CF_TGT := $(INCLIST_$(d))
+$(OBJS_$(d)): CF_TGT := $(INCLIST_$(d)) $(S_CF_UT)
 # Standard things
 
 -include	$(DEPS_$(d))
