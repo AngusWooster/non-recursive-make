@@ -4,6 +4,7 @@ sp 		:= $(sp).x
 dirstack_$(sp)	:= $(d)
 d		:= $(dir)
 
+$(shell mkdir -p $(DIR_OBJ)/$(d)/i2c)
 # Local variables
 SRCLIST_$(d) := i2c/hal_i2c.c \
 

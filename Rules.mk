@@ -28,10 +28,12 @@ include	$(dir)/projects.mk
 
 # General directory independent rules
 $(DIR_OBJ)/%.o:	%.c
-		@echo "comp1"
-		$(CMPLR) $(CF_ALL) $(CF_TGT) -o $(DIR_OBJ)/$(@F) -c $<
+	@echo "comp1"
+#$(CMPLR) $(CF_ALL) $(CF_TGT) -o $(DIR_OBJ)/$(@F) -c $<
+	$(COMP)
 %.a:
-	ar rc $@ $(addprefix  $(DIR_OBJ)/, $(^F))
+#ar rc $@ $(addprefix  $(DIR_OBJ)/, $(^F))
+	$(ARCH)
 
 
 %.o:	%.c

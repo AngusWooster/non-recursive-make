@@ -4,7 +4,7 @@ sp 		:= $(sp).x
 dirstack_$(sp)	:= $(d)
 d		:= $(dir)
 
-
+$(shell mkdir -p $(DIR_OBJ)/$(d))
 # Local variables
 SRCLIST_$(d) := sensor_test.c
 INCLIST_$(d) := -I$(d)/inc
