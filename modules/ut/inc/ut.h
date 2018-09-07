@@ -3,6 +3,5 @@
 
 #include "fff.h"
 #include "minunit.h"
-#define UT_VERSION 1
 
 #endif

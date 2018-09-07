@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "stdlib.h": "c",
+        "sensor.h": "c",
+        "platform.h": "c",
+        "ut.h": "c",
+        "stdio.h": "c"
+    }
+}

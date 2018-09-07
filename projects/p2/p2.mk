@@ -6,7 +6,7 @@ d		:= $(dir)
 
 #$(shell mkdir -p $(DIR_OBJ)/$(d)/)
 # Local variables
-target := $(d)/exe
+target := $(DIR_OUTPUT)/p2
 SRCLIST_$(d) := main.c \
 
 INCLIST_$(d) := -I$(d)/inc \
@@ -21,9 +21,9 @@ TGT_P2 := $(target)
 
 $(OBJS_$(d)): CF_TGT := $(INCLIST_$(d))	## Add header folders	
 
-$(target) : CF_TGT := $(INCLIST_$(d))				## Add header folders
-$(target) : LL_TGT := $(M1_LIB)						## Add links OBJS / Libs
-$(target) : $(OBJS_$(d))							## Add dependency files
+$(target) : CF_TGT := $(INCLIST_$(d))## Add header folders
+$(target) : LL_TGT := $(M1_LIB)## Add links OBJS / Libs
+$(target) : $(OBJS_$(d))## Add dependency files
 	@echo "p2 LINK>>"
 	$(LINK)
 
@@ -32,6 +32,8 @@ $(target) : $(OBJS_$(d))							## Add dependency files
 
 
 # Standard things
+
+-include	$(DEPS_$(d))
 
 d		:= $(dirstack_$(sp))
 sp		:= $(basename $(sp))

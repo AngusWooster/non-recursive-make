@@ -22,7 +22,7 @@ S_CF_UT	= -DUNIT_TEST -Imodules/ut/inc
 #CF_ALL		= -O2 -Wall
 #LF_ALL		= -s
 #LL_ALL		=
-CF_ALL		= -g -Wall
+CF_ALL		= -g -Wall -Icommon/inc
 LF_ALL		=
 LL_ALL		=
 

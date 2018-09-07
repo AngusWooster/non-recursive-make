@@ -1,16 +1,15 @@
-#include <stdio.h>
-#include "m1.h"
-#include "m2.h"
+#include "common.h"
+
+#include "sensor.h"
+#include "math.h"
 
 #define PROJECT_NAME "example_1"
-extern void p1_a(void);
+extern void task1(void);
 
 int main(void)
 {
     printf("%s\n",PROJECT_NAME);
-    p1_a();
-    
-    m1();
-    m2();
+    task1();
+
     return 0;
 }

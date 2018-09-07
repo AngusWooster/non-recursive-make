@@ -19,6 +19,8 @@ all:		targets
 
 
 # Subdirectories, in random order
+dir:=drivers
+include	$(dir)/drivers.mk
 dir:=modules
 include	$(dir)/modules.mk
 dir:=projects
@@ -54,19 +56,26 @@ $(DIR_OBJ)/%.o:	%.c
 targets:	p1
 
 .PHONY:		p1
-p1:	$(TGT_P2)
+p1:	$(TGT_P1)
 $(TGT_P1) : $(TGT_MD)
+$(TGT_MD) : $(TGT_DRIVERS)
 
 .PHONY:		p2
 p2:	$(TGT_P2)
 $(TGT_P2) : $(TGT_MD)
+$(TGT_MD) : $(TGT_DRIVERS)
 
 .PHONY:		ut
 ut:	$(TGT_UT)
 	$(TGT_UT)
 
-.PHONY:		md # make modules
+# make modules
+.PHONY:		md
 md: $(TGT_MD)
+
+# make drivers
+.PHONY:		drivers
+drivers: $(TGT_DRIVERS)
 # These targets merely contain commands to be executed, i.e. they collect
 # only .PHONY targets, even if they're not explicitly marked as such. 
 # The install target does not collect dependencies (other than for forcing

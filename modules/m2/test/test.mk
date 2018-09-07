@@ -6,7 +6,7 @@ d		:= $(dir)
 
 
 # Local variables
-SRCLIST_$(d) := m2_test.c
+SRCLIST_$(d) := math_test.c
 
 INCLIST_$(d) := -I$(d)/inc
 

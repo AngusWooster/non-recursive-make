@@ -1,5 +1,7 @@
-#include <stdio.h>
-#include "m1.h"
+#include "common.h"
+
+#include "sensor.h"
+
 
 #define PROJECT_NAME "example_2"
 

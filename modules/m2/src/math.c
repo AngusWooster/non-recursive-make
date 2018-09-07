@@ -1,6 +1,5 @@
-#include <stdio.h>
-#include <stdbool.h>
-#include "m2.h"
+#include "common.h"
+#include "math.h"
 
 void m2(void)
 {

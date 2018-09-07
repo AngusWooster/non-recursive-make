@@ -5,9 +5,7 @@ dirstack_$(sp)	:= $(d)
 d		:= $(dir)
 
 # Local variables
-SRCLIST_$(d) := m1.c \
-				a1.c \
-				b1.c \
+SRCLIST_$(d) := sensor.c \
 
 INCLIST_$(d) := -I$(d)/inc
 
@@ -18,7 +16,7 @@ CLEAN := $(CLEAN) $(OBJS_$(d)) $(DEPS_$(d))
 # Local rules and targets
 TGT_MD := $(TGT_MD) $(M1_LIB) 
 $(M1_LIB): $(OBJS_$(d))
-$(OBJS_$(d)): CF_TGT := $(INCLIST_$(d))
+$(OBJS_$(d)): CF_TGT := $(INCLIST_$(d))  -Idrivers/chip/inc
 
 ALL_MODULES_OBJS := $(ALL_MODULES_OBJS) $(OBJS_$(d))
 # Subdirectories, in random order. Directory-specific rules are optional here.

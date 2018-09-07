@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "common.h"
 //#include "ut.h"
 
 extern int m1_test(void);
