@@ -4,7 +4,7 @@ sp 		:= $(sp).x
 dirstack_$(sp)	:= $(d)
 d		:= $(dir)
 
-#$(shell mkdir -p $(DIR_OBJ)/$(d)/)
+$(shell mkdir -p $(DIR_OBJ)/$(d)/src/)
 # Local variables
 target := $(DIR_OUTPUT)/p1
 SRCLIST_$(d) := main.c \
@@ -15,7 +15,7 @@ INCLIST_$(d) := -I$(d)/inc \
 				-Imodules/m2/inc \
 
 SRCS_$(d) := $(addprefix $(d)/src/, $(SRCLIST_$(d)))
-OBJS_$(d) := $(addprefix $(d)/src/, $(SRCLIST_$(d):%.c=%.o))
+OBJS_$(d) := $(SRCS_$(d):%.c=$(DIR_OBJ)/%.o)
 DEPS_$(d) := $(OBJS_$(d):%=%.d)
 CLEAN := $(CLEAN) $(target) $(OBJS_$(d)) $(DEPS_$(d))
 # Local rules and targets

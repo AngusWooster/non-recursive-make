@@ -36,11 +36,6 @@ $(DIR_OBJ)/%.o:	%.c
 	$(ARCH)
 
 
-%.o:	%.c
-	@echo "com2"
-	$(COMP)
-
-
 #%.o:	%.c
 #		$(COMP)
 #
@@ -50,8 +45,8 @@ $(DIR_OBJ)/%.o:	%.c
 #%:		%.c
 #		$(COMPLINK)
 #
-#%.a:
-#		$(ARCH)
+%.a:
+		$(ARCH)
 # These two targets collect real targets, i.e. ones that can be built.
 
 .PHONY:		targets
