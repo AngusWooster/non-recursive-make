@@ -1,4 +1,4 @@
-This is a example for non-recursive make
+This is an example for non-recursive make
 
 Architecture:
 
